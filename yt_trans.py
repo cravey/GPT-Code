@@ -1,4 +1,19 @@
 #!/usr/bin/env python3
+# =========================
+# BASIC DOCS
+# =========================
+# Usage: ./yt_trans.py "dQw4w9WgXcQ" or ./yt_trans.py "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+# Youtube really hates this. You may need to rotate your cookies.txt every few files. Assume your google account and any others on your IP will be banned.
+# Requires OPENAI_API_KEY environment variable.
+# Uses yt_dlp to download transcripts.
+# Requires youtube cookies.txt for yt_dlp. Read yt_dlp docs for details.
+# Handles youtube videos with a leading hyphen poorly.
+# Requires transcript.prompt containing chatgpt promts for what to actually do with the transcript.
+# My normal transcript.prompt:
+## Provide a detailed summary fo the following transcript. Call out any novel concepts, philosophies, and action items.
+## Call out any cognitive errors or poor reasoning use by the speakers that might be present in arguments for a conclusion, especially confirmation bias.
+## This is any cognitive errors that the speaker might be using, rather than any cognitive errors the speaker is discussing.
+
 import os
 import sys
 import subprocess
@@ -163,7 +178,7 @@ def main():
 
     # Save the summary to a file with a .summary extension.
     base, _ = os.path.splitext(vtt_file)
-    summary_filename = base + ".summary"
+    summary_filename = base + ".summary.txt"
     with open(summary_filename, 'w', encoding='utf-8') as out:
         out.write(summary)
     print(f"Summary saved as {summary_filename}")
