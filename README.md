@@ -11,7 +11,7 @@ takes a twitch streamers account name as a command line argument and returns whe
 takes the videoid of a youtube video as an argument, downloads the transcript using yt_dlp, then passes the transcript to chatgpt for summarization.
 
 ### trng.py
-pulls random data from the adafruit tinkey qt2040 TRNG
+pulls random data from the Adafruit Trinkey qt2040 TRNG https://learn.adafruit.com/trinkey-qt2040-true-random-number-generator
 
 ### xorfiles.c
 takes two files and XORs them. it assumes they're the same length. IDK what happens if they aren't
